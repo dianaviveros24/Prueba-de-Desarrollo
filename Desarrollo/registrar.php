@@ -1,14 +1,12 @@
 <?php
 
-// $conexion = mysqli_connect("178.128.146.252", "admin_sigmauser", "pfaDKIJyPF", "admin_sigmatest");
- $conexion = mysqli_connect("localhost", "root", "", "registro_usuarios");
+ $conexion = mysqli_connect("178.128.146.252", "admin_sigmauser", "pfaDKIJyPF", "admin_sigmatest");
 
  // if ($conexion) {
  // 	echo "Todo correcto";
  // }
 
 if (isset($_POST['enviar'])) {
-	// if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['state']) && !empty($_POST['city'])){
 	if(strlen($_POST['name']) >= 1 && strlen($_POST['email']) && strlen($_POST['state']) >= 1 && strlen($_POST['city']) >= 1){
 		
 		$name = ($_POST['name']);
@@ -16,7 +14,7 @@ if (isset($_POST['enviar'])) {
 		$state = ($_POST['state']);
 		$city = ($_POST['city']);
 
-		$consulta = "INSERT INTO registro (name, email, state, city) VALUES ('$name', '$email', '$state', '$city')";
+		$consulta = "INSERT INTO contacts (name, email, state, city) VALUES ('$name', '$email', '$state', '$city')";
 
 		$resultado = mysqli_query($conexion, $consulta);
 		if ($resultado) {
